@@ -41,6 +41,8 @@ public class AllSpfIdApplication {
 
 		System.out.println("");
 
+		System.out.println("### PrimaryBean: PrimaryGreeting");
+		System.out.println(">>> " + myController.sayHello() );
 
 	}
 
