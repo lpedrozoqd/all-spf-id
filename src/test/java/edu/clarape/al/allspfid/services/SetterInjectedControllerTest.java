@@ -11,7 +11,7 @@ public class SetterInjectedControllerTest {
     @BeforeEach
     void setUp() {
         controller = new SetterInjectedController();
-        controller.setGreetingService(new GreetingServicesImpl());
+        controller.setGreetingService(new ConstructorGreetingServicesImpl());
     }
 
     @Test

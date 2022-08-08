@@ -12,7 +12,7 @@ public class PropertyInjectedControllerTest {
     @BeforeEach
     void setUp() {
         controller = new PropertyInjectedController();
-        controller.greetingServices = new GreetingServicesImpl();
+        controller.greetingServices = new ConstructorGreetingServicesImpl();
     }
 
 

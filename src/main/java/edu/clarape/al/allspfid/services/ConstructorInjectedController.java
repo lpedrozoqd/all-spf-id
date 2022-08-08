@@ -1,6 +1,7 @@
 package edu.clarape.al.allspfid.services;
 
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 
 @Controller
@@ -10,7 +11,7 @@ public class ConstructorInjectedController {
 
     //Ya no es necesario agregar @Autowired aquí para esta versión de SPF
     //@Autowired
-    public ConstructorInjectedController(GreetingServices greetingService) {
+    public ConstructorInjectedController(@Qualifier("propertyInjectedGreetingServiceImpl") GreetingServices greetingService) {
         this.greetingService = greetingService;
     }
 
