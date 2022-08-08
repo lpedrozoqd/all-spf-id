@@ -4,6 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
+import edu.clarape.al.allspfid.controller.I18nController;
 import edu.clarape.al.allspfid.controller.MyController;
 import edu.clarape.al.allspfid.services.ConstructorInjectedController;
 import edu.clarape.al.allspfid.services.PropertyInjectedController;
@@ -17,6 +18,10 @@ public class AllSpfIdApplication {
 		//SpringApplication.run(AllSpfIdApplication.class, args);
 		
 		ApplicationContext ctx = SpringApplication.run(AllSpfIdApplication.class, args);
+
+		I18nController myI18nController = (I18nController) ctx.getBean("i18nController");
+		System.out.println(">>> " + myI18nController.sayHello());
+		System.out.println("");
 		MyController myController =  (MyController)ctx.getBean("myController");
 		String myControler = myController.sayHello();
 		System.out.println(myControler);
@@ -42,7 +47,9 @@ public class AllSpfIdApplication {
 		System.out.println("");
 
 		System.out.println("### PrimaryBean: PrimaryGreeting");
-		System.out.println(">>> " + myController.sayHello() );
+		System.out.println(">>> " + myController.sayHello());
+
+
 
 	}
 
