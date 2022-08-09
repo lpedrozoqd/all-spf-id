@@ -3,19 +3,22 @@ package edu.clarape.al.allspfid;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
 
 import edu.clarape.al.allspfid.controller.I18nController;
 import edu.clarape.al.allspfid.controller.MyController;
 import edu.clarape.al.allspfid.services.ConstructorInjectedController;
 import edu.clarape.al.allspfid.services.PropertyInjectedController;
 import edu.clarape.al.allspfid.services.SetterInjectedController;
+import edu.clarape.al.allspfv2id.controller.MyControllerV2;
 
+@ComponentScan(basePackages = {"edu.clarape.al.allspfid","edu.clarape.al.allspfv2id"})
 @SpringBootApplication
 public class AllSpfIdApplication {
 
 	public static void main(String[] args) {
 		//Asignación inicial:
-		//SpringApplication.run(AllSpfIdApplication.class, args);
+		//SpringApplication.run(AllSpfIdApplication.class, args); 
 		
 		ApplicationContext ctx = SpringApplication.run(AllSpfIdApplication.class, args);
 
@@ -48,6 +51,16 @@ public class AllSpfIdApplication {
 
 		System.out.println("### PrimaryBean: PrimaryGreeting");
 		System.out.println(">>> " + myController.sayHello());
+
+		System.out.println("");
+
+		//Este controlador se encuentra en un paquete diferente del path raíz donde está
+		//la clase que inicia el proyecto, por lo tanto para que se pueda acceder a
+		//dicha clase, es necesario apoyarse con un 'escaneo' (ver arriba en la clase
+		//el uso de @ComponentScan)
+		MyControllerV2 myControllerV2 = (MyControllerV2) ctx.getBean("myControllerV2");
+		System.out.println("");
+
 
 
 
