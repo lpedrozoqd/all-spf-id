@@ -8,6 +8,7 @@ import org.springframework.context.annotation.ComponentScan;
 import edu.clarape.al.allspfid.controller.I18nController;
 import edu.clarape.al.allspfid.controller.MyController;
 import edu.clarape.al.allspfid.services.ConstructorInjectedController;
+import edu.clarape.al.allspfid.services.MyDS;
 import edu.clarape.al.allspfid.services.PropertyInjectedController;
 import edu.clarape.al.allspfid.services.SetterInjectedController;
 import edu.clarape.al.allspfv2id.controller.MyControllerV2;
@@ -62,7 +63,8 @@ public class AllSpfIdApplication {
 		System.out.println("");
 
 
-
+		MyDS myDS = ctx.getBean(MyDS.class);
+		System.out.println(">>> ds.user: " + myDS.getUser());;
 
 	}
 
